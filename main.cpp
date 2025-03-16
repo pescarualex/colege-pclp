@@ -1,20 +1,13 @@
 #include <iostream>
 using namespace std;
 
-
-
-
-
-
-
-int main() {
-
- //declarare sir caractere:
+void citire_tablou() {
+    //declarare sir caractere:
     //char a[11] = "student"; //se folosesc doar 8 caractere
     //char b[] = "student"; //se aloca automat 8 octeti pentru sirul b => cele 7 litere + caracterul null \0
 
 
-//initializarea sirurilor de caractere este asemanatoare cu initializarea unui tablou
+    //initializarea sirurilor de caractere este asemanatoare cu initializarea unui tablou
     //char c[8] = {'s', 't', 'u', 'd', 'e', 'n', 't', '\0'};
     //char d[] = {'s', 't', 'u', 'd', 'e', 'n', 't', '\0'}; // se aloca automat 8 octeti + \0
 
@@ -41,8 +34,6 @@ int main() {
     cout << "\nSirul de caractere este: " << sir;
 
 
-
-
     //Al doilea exemplu
     //introducerea unui sir de caractere folosind functia cin.get
     //sintaxa este urmatoatea: cin.get(sir, lungime_sir, sfarsit);
@@ -60,17 +51,15 @@ int main() {
     // cin.get(sir, n + 1) -> doar 2 parametri
     //  sir => sirul de caractere
     //  n + 1 => lungimea sirului de caractere care include si caracterul null \0
-     char sir3 [100];
-     cout << "introdu un sir: \n";
-     cin.get(sir3, 20); //lungimea sirului de caractere este de 20
-     cout << "Sirul este: " << sir3;
+    char sir3 [100];
+    cout << "introdu un sir: \n";
+    cin.get(sir3, 20); //lungimea sirului de caractere este de 20
+    cout << "Sirul este: " << sir3;
     // s-au adaugat caractere pana la indexul 18, indexul 19 este folosit pentru caracterul nul \0
+}
 
 
-
-
-
-
+void getlineFunction() {
     //Daca lungimea sirului intodus est mai mare decat cea declarata, atunci sirul ca fi trunchiat
     // sirul va memora toate caracterele introduse, inclusiv cele speciale
     // spatiu, tab, enter
@@ -85,11 +74,10 @@ int main() {
     cin.getline(adresa, 30);
     cout << "\nStudentul se numeste: " << nume << "\n";
     cout << "Adresa este: " << adresa;
+}
 
 
-
-
-
+void strcpyFunction() {
     //functii care lucreaza cu siruri de caractere
     //aceste functii utilizeaza biblioteca string.h
     //functia strcpy => are rolul de a copia sirul de la adresa sursa la adresa sentinatie
@@ -105,7 +93,10 @@ int main() {
     strcpy(sir1, sir2);
     cout << "primul sir de caractere: " << sir1;
     cout << "\nal doilea sir de caractere: " << sir2;
+}
 
+
+void strncpyFunction() {
     //al doilea exemplu
     //strncpy(sir1, sir2, n) => copiaza primele n caractere sin sirul 2 in sirul 1
     // primul sir va fi suprascris in cazul in care acesta este initializat anterior
@@ -120,9 +111,10 @@ int main() {
     strncpy(sir1, sir2, n);
     cout << "Sir1: " << sir1;
     cout << "\nDir2: " << sir2;
+}
 
 
-
+void verificareTimpExecutieProgram() {
     //verificarea timpului de executia a unui program care sorteaza un tablou folosind BubbleSort
     clock_t start, stop;
     int a1[100], lungimeTablou, i, j, aux;
@@ -134,7 +126,10 @@ int main() {
         cin >> a1[i];
     }
     start = clock();
-    for (i = 0; i < lungimeTablou; i++) {
+    for (i = 0; i < lungimeTablou; i++) { //prima iteratie a tabloului
+        // la a doua iteratie, j = lungimea tabloului
+        // conditia este ca j sa fie mai mare sau egal ca si i+1
+        // sortarea se va face crescator, dar se vor compara elementele de a dreapta la stanga (j--)
         for ( j = lungimeTablou - 1; j >= i + 1; j--) {
             if (a1[j - 1] > a1[j]) {
                 aux = a1[j - 1];
@@ -151,12 +146,10 @@ int main() {
 
     cout << "Pentru lungimeTablou=" << lungimeTablou << " dureaza: " <<
         ((float) (stop - start )) / CLOCKS_PER_SEC * 1000 << "ms" << endl;
+}
 
 
-
-
-
-
+int main() {
 
 
 
