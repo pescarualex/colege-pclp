@@ -149,8 +149,33 @@ void verificareTimpExecutieProgram() {
 }
 
 
-int main() {
+//prima problema
+// sa se realizeze un program care calculeaza n factorial
+// sa se calculeze timpii de executie al programului
+int calcFactorial(int n) {
+    if (n == 0)
+        return 1;
 
+    return n * calcFactorial(n - 1);
+}
+
+void afisareRezultat() {
+    int n = 0;
+    clock_t start, stop;
+
+    cout << "Introdu numarul:";
+    cin >> n;
+    start = clock();
+    cout << n << "! = " << calcFactorial(n) << endl;
+    stop = clock();
+
+    cout << "\nPentru n = " << n << ", dureaza: " << ((double) (stop - start) / CLOCKS_PER_SEC * 1000) << "ms";
+
+}
+
+
+int main() {
+    afisareRezultat();
 
 
     return 0;
