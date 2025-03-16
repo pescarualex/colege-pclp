@@ -174,9 +174,34 @@ void afisareRezultat() {
 }
 
 
-int main() {
-    afisareRezultat();
 
+
+//Exercitiu 2
+// sa se realizeze un program care genereaza un set de n numere aleatoare care vor fi stocate intr-un tablou;
+// sa se calculeze timpii de executie
+
+void randomize(int n) {
+    clock_t start, stop;
+    int i;
+    int a[250];
+    start = clock();
+    for (i = 0; i < n; i++) {
+        a[i] = rand();
+        cout << a[i] << endl;
+    }
+    stop = clock();
+
+    cout << "\nPentru n = " << n << ", dureaza: " << ((double) (stop- start) / CLOCKS_PER_SEC * 1000) << "ms";
+}
+
+
+int main() {
+    //afisareRezultat();
+
+    int n;
+    cout << "Introdu numar: ";
+    cin >> n;
+    randomize(n);
 
     return 0;
 }
