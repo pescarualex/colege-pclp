@@ -206,16 +206,36 @@ void wait(int s) {
 }
 
 
+
+
+//Exercitiu 4
+//sa se calculeze suma numerelor pare cuprinse intre 20 si 60
+//sa se caculeze timpii de executie
+void sumaNrPare () {
+    clock_t start, stop;
+    int i = 0;
+    int suma = 0;
+    start = clock();
+    for (i = 20; i < 60; i++) {
+        if (i % 2 == 0) {
+            suma += i;
+        }
+    }
+    cout << "Suma este: " << suma;
+    stop = clock();
+    cout << "\nPentru calcularea sumei numerelor pare, dureaza: " << ((double) (stop- start) / CLOCKS_PER_SEC * 10000) << "s";
+}
+
 int main() {
     //afisareRezultat();
 
-    
+
     // int n;
     // cout << "Introdu numar: ";
     // cin >> n;
     // randomize(n);
 
-
+    sumaNrPare();
 
 
 
