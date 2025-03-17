@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 using namespace std;
 
 void citire_tablou() {
@@ -159,6 +160,8 @@ int calcFactorial(int n) {
     return n * calcFactorial(n - 1);
 }
 
+
+
 void afisareRezultat() {
     int n = 0;
     clock_t start, stop;
@@ -170,7 +173,6 @@ void afisareRezultat() {
     stop = clock();
 
     cout << "\nPentru n = " << n << ", dureaza: " << ((double) (stop - start) / CLOCKS_PER_SEC * 1000) << "ms";
-
 }
 
 
@@ -179,6 +181,8 @@ void afisareRezultat() {
 //Exercitiu 2
 // sa se realizeze un program care genereaza un set de n numere aleatoare care vor fi stocate intr-un tablou;
 // sa se calculeze timpii de executie
+
+
 
 void randomize(int n) {
     clock_t start, stop;
@@ -189,19 +193,31 @@ void randomize(int n) {
         a[i] = rand();
         cout << a[i] << endl;
     }
+    //wait(6);
     stop = clock();
+    cout << "\nPentru n = " << n << ", dureaza: " << ((double) (stop- start) / CLOCKS_PER_SEC * 10000) << "s";
+}
 
-    cout << "\nPentru n = " << n << ", dureaza: " << ((double) (stop- start) / CLOCKS_PER_SEC * 1000) << "ms";
+
+//Exercitiu 3
+// creaza o functie wait. Scopul functiei va fi de a simula o pauza de rulare lunga de aproximativ s secunde
+void wait(int s) {
+    this_thread::sleep_for(chrono::seconds(s));
 }
 
 
 int main() {
     //afisareRezultat();
 
-    int n;
-    cout << "Introdu numar: ";
-    cin >> n;
-    randomize(n);
+    
+    // int n;
+    // cout << "Introdu numar: ";
+    // cin >> n;
+    // randomize(n);
+
+
+
+
 
     return 0;
 }
