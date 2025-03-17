@@ -1,5 +1,7 @@
 #include <iostream>
 #include <thread>
+
+#include "TehnicaFanionului.h"
 using namespace std;
 
 void citire_tablou() {
@@ -235,9 +237,25 @@ int main() {
     // cin >> n;
     // randomize(n);
 
-    sumaNrPare();
+    //sumaNrPare();
 
 
+    //tehnica fanionului exemplu
+    TehnicaFanionului tehnicaFanionului;
+    cout << "Introdu n: ";
+    int n;
+    cin >> n;
+    int a[100];
+    int i = 0;
+    cout << "Introdu elementele in tablou: \n";
+    for (i = 0; i < n; i++) {
+        cout << "a[" << i << "] = ";
+        cin >> a[i];
+    }
+    int x;
+    cout << "Introdu valoarea de cautat: ";
+    cin >> x;
+    tehnicaFanionului.tehnicaFanionuluiExemplu(a, n, x);
 
     return 0;
 }
